@@ -111,6 +111,7 @@ Here are the available **GlyphPresets** and its glyph members :
 
 # Known Issues
 - If your font asset modifications aren't showing up in TextMeshPro components, it might indicate an issue with TextMeshPro's EventManager logic. If this happens, try restarting the Unity Editor to resolve the problem.
+- You may encounter warnings like 'Unable to add the requested character to font asset ....'s atlas texture. Please make the texture .... readable' To fix this, follow the instructions on [this link](https://discussions.unity.com/t/unable-to-add-character-to-font-assets-atlas-texture/900612)
 
 # How to Install Thai Text Care
 You have 2 options for installing the library. Either via the package manager (Recommended) or by downloading this repository and putting it in your Unity Projects.
