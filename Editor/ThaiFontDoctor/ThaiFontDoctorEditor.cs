@@ -94,14 +94,14 @@ namespace PhEngine.ThaiTextCare.Editor
                 }
             }
             EditorGUILayout.EndHorizontal();
-            EditorGUI.indentLevel++;
-            var variantCount = combinationList.Sum(i => i.VariantCount);
-            if (fontAsset)
+            if (fontAsset && combinationList.Count > 0)
             {
+                EditorGUI.indentLevel++;
+                var variantCount = combinationList.Sum(i => i.VariantCount);
                 EditorGUILayout.LabelField("Combination Variant Count : " + variantCount);
                 EditorGUILayout.LabelField("Actual Pair Adjustment Count : " + fontAsset.fontFeatureTable.glyphPairAdjustmentRecords.Count);
+                EditorGUI.indentLevel--;
             }
-            EditorGUI.indentLevel--;
         }
 
         void DrawTesterSection()

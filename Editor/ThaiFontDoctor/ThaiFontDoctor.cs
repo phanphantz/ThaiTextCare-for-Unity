@@ -14,12 +14,12 @@ namespace PhEngine.ThaiTextCare.Editor
         
         public Vector2 testerTMPSize = new Vector2(100f, 100f);
         public string testMessage = @"ปิ่น อื้อ จี๊ด อื้ม ปรื๋อ ผื่น ลิ้น 
-            ติ๋ม ปริ่ม หั่น ปั้น ตั๊ก ป้า ม๊า 
-            ฝ่า ป่า ฟ้า ผ่า ผ้า จ๋า สิทธิ์ 
-            ย่ำ ถ้ำ ฎุ ฎูำ";
+ติ๋ม ปริ่ม หั่น ปั้น ตั๊ก ป้า ม๊า 
+ฝ่า ป่า ฟ้า ผ่า ผ้า จ๋า สิทธิ์  
+ย่ำ ถ้ำ ฎุ ฎูำ";
 
         public TMP_FontAsset fontAsset;
-        public List<GlyphCombination> glyphCombinationList;
+        public List<GlyphCombination> glyphCombinationList = new List<GlyphCombination>();
 
         [HideInInspector, SerializeField] List<TMP_GlyphPairAdjustmentRecord> cachedPairList = new List<TMP_GlyphPairAdjustmentRecord>();
 
@@ -101,8 +101,8 @@ namespace PhEngine.ThaiTextCare.Editor
 
         void ApplyChangesToFontAsset()
         {
-            TMPro_EventManager.ON_FONT_PROPERTY_CHANGED(true, fontAsset);
             fontAsset.ReadFontAssetDefinition();
+            TMPro_EventManager.ON_FONT_PROPERTY_CHANGED(true, fontAsset);
             EditorUtility.SetDirty(fontAsset);
         }
 
