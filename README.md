@@ -25,7 +25,7 @@ This component tokenizes and separates Thai words on TextMeshPro components usin
 - **Word Breaks GUI** - The word segmentation is visualized in the **Scene View**. You can configure the visualization using **GUIMode** and G**UIColor**
 - **Dictionary Edit** - If tokenization is incorrect for unknown words, you can easily Add or Remove words from the dictionary directly through the **Dictionary** section on the ThaiTextNurse Inspector.
 - **Custom Separator** - You can insert a **custom separator** before each word breaks.
-- **Glyph Correction** - You can set **Correction** option to **YoorYingAndToorTaan or FullC90** to fix the issues where the lower vowels like 'ุ' and 'ู' get overlapped with characters like 'ญ' and 'ฐ'. But the font you use must support [**C90 encoding**](https://github.com/SaladLab/Unity3D.ThaiFontAdjuster/blob/master/docs/UnderTheHood.md#the-c90-encoding-for-thai). If not, you can try to modify it using [**Fontforge**](https://fontforge.org/en-US/). See [**Thai Font Modification using FontForge**]() for more details.
+- **Glyph Correction** - You can set **Correction** option to **YoorYingAndToorTaan or FullC90** to fix the issues where the lower vowels like 'ุ' and 'ู' get overlapped with characters like 'ญ' and 'ฐ'. But the font you use must support [**C90 encoding**](https://github.com/SaladLab/Unity3D.ThaiFontAdjuster/blob/master/docs/UnderTheHood.md#the-c90-encoding-for-thai). If not, you can try to modify it using [**Fontforge**](https://fontforge.org/en-US/). See [**Thai Font Modification using FontForge**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#thai-font-modification-using-fontforge) for more details.
 
 ## Under The Hood
 - ThaiTextNurse makes no changes to the original text instead, it only modifies the displayed message using the TMP_Text component's **ITextPreprocessor** feature, so you can add or remove it without any side effects.
@@ -40,7 +40,7 @@ This component tokenizes and separates Thai words on TextMeshPro components usin
   - When the first ThaiTextNurse triggers the first tokenization during runtime.
   - When you **Force Rebuild** the dictionary either by pressing a button on ThaiTextNurse Inspector or by calling **ThaiTextNurse.RebuildDictionary()**
 - If you modify the dictionary in any way other than Adding or Removing words via the ThaiTextNurse Inspector (e.g., by editing the dictionary file directly), you must manually Force Rebuild the dictionary by yourself.
-- In the dictionary file, each word is separated by **new line characters (\r\n, \n, \r)** and words beginning with the **'/'** character are ignored by the tokenizer.
+- In the dictionary file, each word is separated by **new line characters (\r\n, \n, \r)**, and words beginning with the **'/'** character are ignored by the tokenizer.
 
 ## Scripting
 
