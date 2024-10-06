@@ -13,7 +13,7 @@ namespace PhEngine.ThaiTextCare.Editor
         {
             var settings = ThaiTextCareSettings.PrepareInstance();
             if (settings && settings.IsLoadDictionaryOnEditorStartUp)
-                ThaiTextNurse.RebuildDictionary();
+                EditorApplication.delayCall += ()=> ThaiTextNurse.RebuildDictionary();
         }
 
         public static void AddWordsToDictionary(string pendingWords, bool isUpdateNursesInScene = true)
