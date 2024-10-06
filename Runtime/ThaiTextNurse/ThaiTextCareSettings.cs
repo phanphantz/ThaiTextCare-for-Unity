@@ -46,8 +46,8 @@ namespace PhEngine.ThaiTextCare
                     AssetDatabase.SaveAssets();
                     
                     //Check if asset is added to the project as a package
-                    var packageDictionary = (TextAsset)AssetDatabase.LoadAssetAtPath("Packages/Thai Text Care/Resources/dictionary.txt", typeof(TextAsset));
-                    if (packageDictionary)
+                    var packageDictionaryPath = Path.GetFullPath("Packages/com.phengine.thaitextcare/Resources/dictionary.txt");
+                    if (!string.IsNullOrEmpty(packageDictionaryPath))
                     {
                         if (ThaiTextNurse.TryLoadDictionaryAsset(unsafeInstance, out var defaultTextAsset))
                         {
@@ -57,7 +57,8 @@ namespace PhEngine.ThaiTextCare
                         else
                         {
                             Debug.Log("Created a default dictionary at folder: " + PluginsFolderPath);
-                            File.WriteAllText(Path.Combine(Application.dataPath, PluginsFolderPath, "dictionary.txt"), packageDictionary.text);
+                            var targetPath = Path.Combine(Application.dataPath, PluginsFolderPath, "dictionary.txt");
+                            File.Copy(packageDictionaryPath, targetPath);
                             AssetDatabase.Refresh();
                         }
                     }
