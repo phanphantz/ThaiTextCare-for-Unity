@@ -23,7 +23,7 @@ namespace PhEngine.ThaiTextCare.Editor
         
             if (DrawUnderlinedButton("Report a Bug",80f))
             {
-                Application.OpenURL("https://github.com/phanphantz/GameDevSecretSauce");
+                Application.OpenURL("https://github.com/phanphantz/ThaiTextCare-for-Unity/issues/new");
             }
             EditorGUILayout.EndHorizontal();
         }
