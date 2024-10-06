@@ -34,7 +34,13 @@ namespace PhEngine.ThaiTextCare
                 if (unsafeInstance == null)
                 {
 #if UNITY_EDITOR
-                    //Try check default dictionary if installed ThaiTextCare as a package
+                    //Ensure plugin folder exists
+                    var path = SettingsPath;
+                    var directory = Path.GetDirectoryName(path);
+                    if (!Directory.Exists(directory) && directory != null)
+                        Directory.CreateDirectory(directory);
+                    
+                    //Try setup default dictionary if installed ThaiTextCare as a package
                     var packageDictionaryPath = Path.GetFullPath("Packages/com.phengine.thaitextcare/Resources/dictionary.txt");
                     if (!string.IsNullOrEmpty(packageDictionaryPath) && File.Exists(packageDictionaryPath))
                     {
@@ -47,16 +53,11 @@ namespace PhEngine.ThaiTextCare
                         }
                     }
                     
-                    //Now the settings
-                    var path = SettingsPath;
-                    Debug.Log("Created a default ThaiTextNurseSettings at : " + path);
+                    //Now the default settings
                     unsafeInstance = CreateInstance<ThaiTextCareSettings>();
-                    var directory = Path.GetDirectoryName(path);
-                    if (!Directory.Exists(directory) && directory != null)
-                        Directory.CreateDirectory(directory);
-
                     AssetDatabase.CreateAsset(unsafeInstance, path);
                     AssetDatabase.SaveAssets();
+                    Debug.Log("Created a default ThaiTextNurseSettings at : " + path);
 #else
                     Debug.LogError("ThaiTextNurseSettings.asset is missing from the Resources folder! the default settings will be used on ThaiTextNurse components");
 #endif
