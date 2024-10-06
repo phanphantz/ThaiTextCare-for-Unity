@@ -114,7 +114,7 @@ You got 2 options for installing the library. Either via the package manager (Re
 ### Package Manager Installation
 Installing the package via the Package Manager allows you to easily install or update ThaiTextCare as a third-party library. However, this method is not suitable if you wish to modify the source code.
 1. In UnityEditor, Go to **Window > Package Manager**
-2. Click + button and choose install by URL
+2. Click + button and choose **Add package by git URL**
 3. Use this link to install the package: https://github.com/phanphantz/ThaiTextCare-for-Unity.git
 4. That's it! You're all set!
 
@@ -154,7 +154,7 @@ Here’s a summary of the Thai characters in each row:
 # Credits & Inspirations
 - Huge thanks to **SaladLab** for the [**ThaiFontAdjuster**](https://github.com/SaladLab/Unity3D.ThaiFontAdjuster), which is the approach for correcting characters using extended glyphs.
 - I would also like to express my gratitude to **Chaiwat Matarak** for [**ThaiStringTokenizer**](https://github.com/chaiwatmat/ThaiStringTokenizer). The dictionary file used in this project is based on his work, and it also inspired the creation of my own PhTokenizer class.
-- A special thanks to **Onchulee** for the [**ThaiText**](https://github.com/Onchulee/ThaiText) repository which also inspired me about how to handle the Dictionary effectively. His C# implementation of the **LexTo** library for word segmentation is also an impressive work.
+- A special thanks to **Onchulee** for the [**ThaiText**](https://github.com/Onchulee/ThaiText) repository which inspired me about how to handle the Dictionary effectively. His C# implementation of the **LexTo** library for word segmentation is also an impressive work.
 
 You are all true heroes—thank you for inspiring me!
 
