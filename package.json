@@ -1,0 +1,16 @@
+{
+  "name": "com.phengine.thaitextcare",
+  "displayName": "Thai Text Care",
+  "version": "0.1.0",
+  "description": "Library for Enhanced Thai Language Support in Unity's TextMeshPro",
+  "keywords": [],
+  "dependencies": {
+    "com.unity.textmeshpro": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phanphantz/ThaiTextCare-for-Unity"
+  },
+  "license": "MIT",
+  "author": "Phun Peeticharoenthum"
+}

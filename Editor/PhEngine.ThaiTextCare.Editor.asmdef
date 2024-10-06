@@ -1,0 +1,19 @@
+{
+    "name": "PhEngine.ThaiTextCare.Editor",
+    "rootNamespace": "",
+    "references": [
+        "PhEngine.ThaiTextCare",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,6 @@
+{
+	"name": "PhEngine.ThaiTextCare",
+	"references": [
+		"Unity.TextMeshPro"
+	]
+}
