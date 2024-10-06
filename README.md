@@ -17,7 +17,7 @@ This library provides enhanced Thai language support for Unity's TextMeshPro suc
 # ThaiTextNurse
 This component tokenizes and separates Thai words on TextMeshPro components using **Zero Width Space**. Just attach it to any TextMeshPro component and you're all set! It will beautifully wrap the Thai text for you!
 
-<img>
+<img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/ThaiTextNurse.jpeg" width="1000">
 
 **Key Features**
 - **Real-time Tokenization** - It updates in real-time when the text is modified via the Editor or Script.
@@ -104,19 +104,19 @@ Here are the available **GlyphPresets** and its glyph members :
 | LowerVowels | สระล่าง |- ุ, - ู | 
 
 ## Limitations
-- If multiple Glyph Combinations target the same glyphs, only the last adjustment will be applied. You can reorder combinations by selecting one of them and use the Up Arrow or Down Arrow buttons to prioritize adjustments.
+- If multiple Glyph Combinations target the same glyphs, only the last adjustment will be applied. You can reorder combinations by selecting one of them and using the Up Arrow or Down Arrow buttons to prioritize adjustments.
 - ThaiFontDoctor doesn't modify the displayed text based on Unicode replacements. Issues like YoYing ( ญ ) and ThoThan ( ฐ ) incorrectly rendering with lower vowels like Sara Uu ( ู ) remain unresolved for now.
 - The multi-edit feature is not supported.
 
 # How to Install Thai Text Care
-You got 2 options for installing the library. Either via the package manager (Reccommended) or by donwloading this repository and put it in your Unity Projects.
+You got 2 options for installing the library. Either via the package manager (Recommended) or by downloading this repository and putting it in your Unity Projects.
 
 ### Package Manager Installation
 Installing the package via the Package Manager allows you to easily install or update ThaiTextCare as a third-party library. However, this method is not suitable if you wish to modify the source code.
 1. In UnityEditor, Go to **Window > Package Manager**
 2. Click + button and choose **Add package by git URL**
 3. Use this link to install the package: https://github.com/phanphantz/ThaiTextCare-for-Unity.git
-4. That's it! You're all set!
+4. That's it! You're all set! Make sure to check out the example assets under **Packages/Thai Text Care/Examples**
 
 # Thai Font Modification using FontForge
 To modify your Thai font extended character glyphs to have the correct Unicode, follow these steps :
