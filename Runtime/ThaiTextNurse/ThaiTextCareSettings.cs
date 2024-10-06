@@ -45,20 +45,20 @@ namespace PhEngine.ThaiTextCare
                     AssetDatabase.SaveAssets();
                     Debug.Log("Created a default ThaiTextNurseSettings at : " + path);
                     
-                    //Asset is added to the project as source code
-                    if (ThaiTextNurse.TryLoadDictionaryAsset(unsafeInstance, out var defaultTextAsset))
+                    //Asset is added to the project as a package
+                    var packageDictionary = (TextAsset)AssetDatabase.LoadAssetAtPath("Packages/com.phengine.thaitextcare/Resources/dictionary.txt", typeof(TextAsset));
+                    if (packageDictionary)
                     {
-                        Resources.UnloadAsset(defaultTextAsset);
-                    }
-                    //Asset is added to the project as package
-                    else
-                    {
-                        var packageDictionary = (TextAsset)AssetDatabase.LoadAssetAtPath("Packages/com.phengine.thaitextcare/Resources/dictionary.txt", typeof(TextAsset));
-                        if (packageDictionary == null)
-                            throw new NullReferenceException("Cannot find the default package dictionary file.");
-                        
-                        File.WriteAllText(Path.Combine(Application.dataPath, PluginsFolderPath) + "dictionary.txt", packageDictionary.text);
-                        AssetDatabase.Refresh();
+                        if (ThaiTextNurse.TryLoadDictionaryAsset(unsafeInstance, out var defaultTextAsset))
+                        {
+                            Resources.UnloadAsset(defaultTextAsset);
+                        }
+                        else
+                        {
+                            Debug.Log("Created a default dictionary at path: " + PluginsFolderPath);
+                            File.WriteAllText(Path.Combine(Application.dataPath, PluginsFolderPath) + "dictionary.txt", packageDictionary.text);
+                            AssetDatabase.Refresh();
+                        }
                     }
 #else
                     Debug.LogError("ThaiTextNurseSettings.asset is missing from the Resources folder! the default settings will be used on ThaiTextNurse components");
