@@ -3,11 +3,16 @@ This library provides enhanced Thai language support for Unity's TextMeshPro suc
 
 ### Overview
 - [**ThaiTextNurse**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#thaitextnurse) - A Real-time Text Tokenizer component. Provide robust Thai word segmentation on TextMeshPro components.
-- [**ThaiFontDoctor**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#thaifontdoctor) - An Editor tool for automating Thai Font Glyph Adjustments for TMP_FontAsset. Can be used to solve overlapped vowels/tone marks which is a common issues in Thai font rendering.
-- **Other Topics**
-  - [**How to Install Thai Text Care**](./#thaifontdoctor)
-  - [**Thai Font Modification using FontForge**](#thaifontdoctor)
-  - [**Credits & Inspirations**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#thaifontdoctor)
+  - [**Under The Hood**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#under-the-hood)
+  - [**Handling the Dictionary**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#handling-the-dictionary)
+  - [**Scripting**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#scripting)
+- [**ThaiFontDoctor**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#thaifontdoctor) - An Editor tool for automating Thai Font Glyph Adjustments for TMP_FontAsset. Can be used to solve overlapped vowels/tone marks which is a common issue in Thai font rendering.
+  - [**Glyph Presets**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#glyph-presets)
+  - [**Limitations**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#limitations)
+- **Other Topics:**
+  - [**How to Install Thai Text Care**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#how-to-install-thai-text-care)
+  - [**Thai Font Modification using FontForge**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#thai-font-modification-using-fontforge)
+  - [**Credits & Inspirations**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#thai-font-modification-using-fontforge)
 
 # ThaiTextNurse
 This component tokenizes and separates Thai words on TextMeshPro components using **Zero Width Space**. Just attach it to any TextMeshPro component and you're all set! It will beautifully wrap the Thai text for you!
@@ -15,7 +20,7 @@ This component tokenizes and separates Thai words on TextMeshPro components usin
 <img>
 
 **Key Features**
-- **Real-time Tokenization** - It updates in real time when the text is modified via the Editor or Script.
+- **Real-time Tokenization** - It updates in real-time when the text is modified via the Editor or Script.
 - **Word Breaks GUI** - The word segmentation is visualized in the **Scene View**. You can configure this feature using **GUIMode** and G**UIColor**
 - **Dictionary Edit** - If tokenization is incorrect for unknown words, you can easily Add or Remove words from the dictionary directly through the **Dictionary** section on the ThaiTextNurse Inspector.
 - **Custom Separator** - You can insert a **custom separator** before each word breaks.
@@ -36,7 +41,7 @@ This component tokenizes and separates Thai words on TextMeshPro components usin
 - If you modify the dictionary in any way other than Adding or Removing words via the ThaiTextNurse Inspector (e.g., by editing the dictionary file directly), you must manually Force Rebuild the dictionary by yourself.
 - In the dictionary file, each word is separated by **new line characters (\r\n, \n, \r)** and words beginning with the **'/'** character are ignored by the tokenizer.
 
-## Using ThaiTextNurse APIs
+## Scripting
 
 ### Runtime & Editor
 - You can manually call **ThaiTextNurse.RebuildDictionary()** or **RebuildDictionaryAsync()** (as a coroutine) to load the dictionary in advance during a loading screen to avoid any lags from initializing the dictionary.
@@ -82,6 +87,7 @@ Take a look at **ThaiFontDoctor.asset** for an example. This instance of ThaiFon
 - Every action performed on the **ThaiFontDoctor** inspector is fully Undo-supported, so you can safely experiment with your adjustments.
 - When modifying Glyph Combination, You can use **GlyphPreset** to easily insert common Thai character sets, or choose the **กำหนดเอง (Custom)** preset to fine-tune specific glyphs as needed.
   
+## Glyph Presets
 Here are the available **GlyphPresets** and its glyph members :
 | ThaiGlyphPreset | Display Name | Glyph Members | 
 |-----------------------|--------------------------|---------------------------------------------------------------------------------------------------| 
@@ -100,12 +106,12 @@ Here are the available **GlyphPresets** and its glyph members :
 ## Limitations
 - If multiple Glyph Combinations target the same glyphs, only the last adjustment will be applied. You can reorder combinations by selecting one of them and use the Up Arrow or Down Arrow buttons to prioritize adjustments.
 - ThaiFontDoctor doesn't modify the displayed text based on Unicode replacements. Issues like YoYing ( ญ ) and ThoThan ( ฐ ) incorrectly rendering with lower vowels like Sara Uu ( ู ) remain unresolved for now.
-- Multi-edit feature is not supported.
+- The multi-edit feature is not supported.
 
 # How to Install Thai Text Care
 You got 2 options for installing the library. Either via the package manager (Reccommended) or by donwloading this repository and put it in your Unity Projects.
 
-## Package Manager Installation
+### Package Manager Installation
 Installing the package via the Package Manager allows you to easily install or update ThaiTextCare as a third-party library. However, this method is not suitable if you wish to modify the source code.
 1. In UnityEditor, Go to **Window > Package Manager**
 2. Click + button and choose install by URL
@@ -146,9 +152,9 @@ Here’s a summary of the Thai characters in each row:
 # Credits & Inspirations
 - Huge thanks to **SaladLab** for the [**ThaiFontAdjuster**](https://github.com/SaladLab/Unity3D.ThaiFontAdjuster), which is the approach for correcting characters using extended glyphs.
 - I would also like to express my gratitude to **Chaiwat Matarak** for [**ThaiStringTokenizer**](https://github.com/chaiwatmat/ThaiStringTokenizer). The dictionary file used in this project is based on his work, and it also inspired the creation of my own PhTokenizer class.
-- A special thanks to **Onchulee** for the [**ThaiText**](https://github.com/Onchulee/ThaiText) repository which also inspired me about how to handle the Dictionary effectively. His C# implementation of the **LexTo **library for word segmentation is also an impressive work.
+- A special thanks to **Onchulee** for the [**ThaiText**](https://github.com/Onchulee/ThaiText) repository which also inspired me about how to handle the Dictionary effectively. His C# implementation of the **LexTo** library for word segmentation is also an impressive work.
 
-You are all true heroes—thank you for inspiring me!.
+You are all true heroes—thank you for inspiring me!
 
 With gratitude,
 <br>Phun
