@@ -2,7 +2,6 @@
 using UnityEditor;
 #endif
 
-using System;
 using System.IO;
 using UnityEngine;
 
@@ -35,6 +34,20 @@ namespace PhEngine.ThaiTextCare
                 if (unsafeInstance == null)
                 {
 #if UNITY_EDITOR
+                    //Try check default dictionary if installed ThaiTextCare as a package
+                    var packageDictionaryPath = Path.GetFullPath("Packages/com.phengine.thaitextcare/Resources/dictionary.txt");
+                    if (!string.IsNullOrEmpty(packageDictionaryPath))
+                    {
+                        var targetPath = Path.Combine(Application.dataPath, PluginsFolderPath, "dictionary.txt");
+                        if (!File.Exists(targetPath))
+                        {
+                            Debug.Log("Created a default dictionary at folder: " + PluginsFolderPath);
+                            File.Copy(packageDictionaryPath, targetPath);
+                            AssetDatabase.Refresh();
+                        }
+                    }
+                    
+                    //Now the settings
                     var path = SettingsPath;
                     Debug.Log("Created a default ThaiTextNurseSettings at : " + path);
                     unsafeInstance = CreateInstance<ThaiTextCareSettings>();
@@ -44,24 +57,6 @@ namespace PhEngine.ThaiTextCare
 
                     AssetDatabase.CreateAsset(unsafeInstance, path);
                     AssetDatabase.SaveAssets();
-                    
-                    //Check if asset is added to the project as a package
-                    var packageDictionaryPath = Path.GetFullPath("Packages/com.phengine.thaitextcare/Resources/dictionary.txt");
-                    if (!string.IsNullOrEmpty(packageDictionaryPath))
-                    {
-                        if (ThaiTextNurse.TryLoadDictionaryAsset(unsafeInstance, out var defaultTextAsset))
-                        {
-                            // We already have the dictionary, nothing to do. Unload it
-                            Resources.UnloadAsset(defaultTextAsset);
-                        }
-                        else
-                        {
-                            Debug.Log("Created a default dictionary at folder: " + PluginsFolderPath);
-                            var targetPath = Path.Combine(Application.dataPath, PluginsFolderPath, "dictionary.txt");
-                            File.Copy(packageDictionaryPath, targetPath);
-                            AssetDatabase.Refresh();
-                        }
-                    }
 #else
                     Debug.LogError("ThaiTextNurseSettings.asset is missing from the Resources folder! the default settings will be used on ThaiTextNurse components");
 #endif
