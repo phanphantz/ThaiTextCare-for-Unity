@@ -21,7 +21,7 @@ This component tokenizes and separates Thai words on TextMeshPro components usin
 <img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/ThaiTextNurse.jpeg" width="1000">
 
 **Key Features**
-- **Real-time Tokenization** - It updates in real-time when the text is modified via the Editor or Script.
+- **Real-time Tokenization** - It updates in real-time when the text is modified via the Inspector or Script.
 - **Word Breaks GUI** - The word segmentation is visualized in the **Scene View**. You can configure the visualization using **GUIMode** and G**UIColor**
 - **Dictionary Edit** - If tokenization is incorrect for unknown words, you can easily Add or Remove words from the dictionary directly through the **Dictionary** section on the ThaiTextNurse Inspector.
 - **Custom Separator** - You can insert a **custom separator** before each word breaks.
