@@ -11,6 +11,7 @@ This library provides enhanced Thai language support for Unity's TextMeshPro suc
   - [**Limitations**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#limitations)
 - **Other Topics:**
   - [**How to Install Thai Text Care**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#how-to-install-thai-text-care)
+  - [**Known Issues**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#known-issues)
   - [**Thai Font Modification using FontForge**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#thai-font-modification-using-fontforge)
   - [**Credits & Inspirations**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#credits--inspirations)
 
@@ -108,8 +109,11 @@ Here are the available **GlyphPresets** and its glyph members :
 - ThaiFontDoctor doesn't modify the displayed text based on Unicode replacements. Issues like YoYing ( ญ ) and ThoThan ( ฐ ) incorrectly rendering with lower vowels like Sara Uu ( ู ) remain unresolved for now.
 - The multi-edit feature is not supported.
 
+# Known Issues
+- If your font asset modifications aren't showing up in TextMeshPro components, it might indicate an issue with TextMeshPro's EventManager logic. If this happens, try restarting the Unity Editor to resolve the problem.
+
 # How to Install Thai Text Care
-You got 2 options for installing the library. Either via the package manager (Recommended) or by downloading this repository and putting it in your Unity Projects.
+You have 2 options for installing the library. Either via the package manager (Recommended) or by downloading this repository and putting it in your Unity Projects.
 
 ### Package Manager Installation
 Installing the package via the Package Manager allows you to easily install or update ThaiTextCare as a third-party library. However, this method is not suitable if you wish to modify the source code.
