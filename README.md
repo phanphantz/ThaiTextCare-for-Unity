@@ -12,7 +12,7 @@ This library provides enhanced Thai language support for Unity's TextMeshPro suc
 - **Other Topics:**
   - [**How to Install Thai Text Care**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#how-to-install-thai-text-care)
   - [**Thai Font Modification using FontForge**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#thai-font-modification-using-fontforge)
-  - [**Credits & Inspirations**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#thai-font-modification-using-fontforge)
+  - [**Credits & Inspirations**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#credits-&-inspirations)
 
 # ThaiTextNurse
 This component tokenizes and separates Thai words on TextMeshPro components using **Zero Width Space**. Just attach it to any TextMeshPro component and you're all set! It will beautifully wrap the Thai text for you!
