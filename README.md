@@ -22,7 +22,7 @@ This component tokenizes and separates Thai words on TextMeshPro components usin
 
 **Key Features**
 - **Real-time Tokenization** - It updates in real-time when the text is modified via the Editor or Script.
-- **Word Breaks GUI** - The word segmentation is visualized in the **Scene View**. You can configure this feature using **GUIMode** and G**UIColor**
+- **Word Breaks GUI** - The word segmentation is visualized in the **Scene View**. You can configure the visualization using **GUIMode** and G**UIColor**
 - **Dictionary Edit** - If tokenization is incorrect for unknown words, you can easily Add or Remove words from the dictionary directly through the **Dictionary** section on the ThaiTextNurse Inspector.
 - **Custom Separator** - You can insert a **custom separator** before each word breaks.
 - **Glyph Correction** - You can set **Correction** option to **YoorYingAndToorTaan or FullC90** to fix the issues where the lower vowels like 'ุ' and 'ู' get overlapped with characters like 'ญ' and 'ฐ'. But the font you use must support [**C90 encoding**](https://github.com/SaladLab/Unity3D.ThaiFontAdjuster/blob/master/docs/UnderTheHood.md#the-c90-encoding-for-thai). If not, you can try to modify it using [**Fontforge**](https://fontforge.org/en-US/). See [**Thai Font Modification using FontForge**]() for more details.
