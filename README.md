@@ -109,10 +109,6 @@ Here are the available **GlyphPresets** and its glyph members :
 - ThaiFontDoctor doesn't modify the displayed text based on Unicode replacements. Issues like YoYing ( ญ ) and ThoThan ( ฐ ) incorrectly rendering with lower vowels like Sara Uu ( ู ) remain unresolved for now.
 - The multi-edit feature is not supported.
 
-# Known Issues
-- If your font asset modifications aren't showing up in TextMeshPro components, it might indicate an issue with TextMeshPro's EventManager logic. If this happens, try restarting the Unity Editor to resolve the problem.
-- You may encounter warnings like 'Unable to add the requested character to font asset ....'s atlas texture. Please make the texture .... readable' To fix this, follow the instructions on [this link](https://discussions.unity.com/t/unable-to-add-character-to-font-assets-atlas-texture/900612)
-
 # How to Install Thai Text Care
 You have 2 options for installing the library. Either via the package manager (Recommended) or by downloading this repository and putting it in your Unity Projects.
 
@@ -122,6 +118,10 @@ Installing the package via the Package Manager allows you to easily install or u
 2. Click + button and choose **Add package by git URL**
 3. Use this link to install the package: https://github.com/phanphantz/ThaiTextCare-for-Unity.git
 4. That's it! You're all set! Make sure to check out the example assets under **Packages/Thai Text Care/Examples**
+
+# Known Issues
+- If your font asset modifications aren't showing up in TextMeshPro components, it might indicate an issue with TextMeshPro's EventManager logic. If this happens, try restarting the Unity Editor to resolve the problem.
+- You may encounter warnings like 'Unable to add the requested character to font asset ....'s atlas texture. Please make the texture .... readable' To fix this, follow the instructions on [this link](https://discussions.unity.com/t/unable-to-add-character-to-font-assets-atlas-texture/900612)
 
 # Thai Font Modification using FontForge
 To modify your Thai font extended character glyphs to have the correct Unicode, follow these steps :
