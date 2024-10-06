@@ -122,7 +122,9 @@ Installing the package via the Package Manager allows you to easily install or u
 To modify your Thai font extended character glyphs to have the correct Unicode, follow these steps :
 1. Download [**FontForge**](https://fontforge.org/en-US/)
 2. Open the desired font with **FontForge** (On Windows, you can use **Open With...** from the Right-click menu and Choose **FontForge**)
-3. You will need to map the extended characters to the correct Unicode by yourself by right-clicking on the target glyph > Glyph Info... > Then edit the Unicode field to the correct value. A Python script can also be used to automate the process. You can copy glyphs by their names to the target Unicode, but the challenge is that many fonts use different naming conventions for their characters 
+3. You will need to map the extended characters to the correct Unicode by yourself by right-clicking on the target glyph **> Glyph Info...** > Then edit the **Unicode** field to the correct value.
+
+A Python script can also be used to automate the process. You can copy glyphs by their names to the target Unicode, but the challenge is that many fonts use different naming conventions for their characters.
 
 According to [**C90 encoding**](https://github.com/SaladLab/Unity3D.ThaiFontAdjuster/blob/master/docs/UnderTheHood.md#the-c90-encoding-for-thai), Extended glyphs consist of:
 
