@@ -45,7 +45,7 @@ This component tokenizes and separates Thai words on TextMeshPro components usin
 ## Scripting
 
 ### Runtime & Editor
-- You can manually call **ThaiTextNurse.RebuildDictionary()** or **RebuildDictionaryAsync()** (as a coroutine) to load the dictionary in advance during a loading screen to avoid any lags from initializing the dictionary.
+- You can manually call **ThaiTextNurse.RebuildDictionary()** or **RebuildDictionaryAsync()** (as a coroutine) to load the dictionary in advance during a loading screen to avoid any lags during the initialization of the dictionary.
 - To get a tokenized version of any string, use one of the **ThaiTextNurse.SafeTokenize()** or **TryTokenize()** methods
 
 ```csharp
