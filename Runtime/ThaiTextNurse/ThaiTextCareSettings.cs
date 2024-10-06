@@ -36,6 +36,7 @@ namespace PhEngine.ThaiTextCare
                 {
 #if UNITY_EDITOR
                     var path = SettingsPath;
+                    Debug.Log("Created a default ThaiTextNurseSettings at : " + path);
                     unsafeInstance = CreateInstance<ThaiTextCareSettings>();
                     var directory = Path.GetDirectoryName(path);
                     if (!Directory.Exists(directory) && directory != null)
@@ -43,20 +44,20 @@ namespace PhEngine.ThaiTextCare
 
                     AssetDatabase.CreateAsset(unsafeInstance, path);
                     AssetDatabase.SaveAssets();
-                    Debug.Log("Created a default ThaiTextNurseSettings at : " + path);
                     
-                    //Asset is added to the project as a package
-                    var packageDictionary = (TextAsset)AssetDatabase.LoadAssetAtPath("Packages/com.phengine.thaitextcare/Resources/dictionary.txt", typeof(TextAsset));
+                    //Check if asset is added to the project as a package
+                    var packageDictionary = (TextAsset)AssetDatabase.LoadAssetAtPath("Packages/Thai Text Care/Resources/dictionary.txt", typeof(TextAsset));
                     if (packageDictionary)
                     {
                         if (ThaiTextNurse.TryLoadDictionaryAsset(unsafeInstance, out var defaultTextAsset))
                         {
+                            // We already have the dictionary, nothing to do. Unload it
                             Resources.UnloadAsset(defaultTextAsset);
                         }
                         else
                         {
-                            Debug.Log("Created a default dictionary at path: " + PluginsFolderPath);
-                            File.WriteAllText(Path.Combine(Application.dataPath, PluginsFolderPath) + "dictionary.txt", packageDictionary.text);
+                            Debug.Log("Created a default dictionary at folder: " + PluginsFolderPath);
+                            File.WriteAllText(Path.Combine(Application.dataPath, PluginsFolderPath, "dictionary.txt"), packageDictionary.text);
                             AssetDatabase.Refresh();
                         }
                     }
