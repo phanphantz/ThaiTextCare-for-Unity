@@ -16,7 +16,7 @@ namespace PhEngine.ThaiTextCare.Editor
                 ThaiTextNurse.RebuildDictionary();
         }
 
-        public static void AddWordsToDictionary(string pendingWords)
+        public static void AddWordsToDictionary(string pendingWords, bool isUpdateNursesInScene = true)
         {
             var settings = ThaiTextCareSettings.PrepareInstance();
             if (!ThaiTextNurse.TryLoadDictionaryAsset(settings, out var textAsset))
@@ -35,17 +35,17 @@ namespace PhEngine.ThaiTextCare.Editor
                 }
             }
             var content = string.Join(System.Environment.NewLine, dictionaryWordList);
-            SaveDictionaryAndRebuild(assetPath, content);
+            SaveDictionaryAsset(assetPath, content, isUpdateNursesInScene);
             var message = succeedList.Count == 1 ? "Added '" + succeedList.FirstOrDefault() + "'" : "Added " + succeedList.Count + " New Words";
             Debug.Log("Added: " + string.Join(", ", succeedList));
             SceneView.lastActiveSceneView.ShowNotification(new GUIContent(message), 1f);
         }
 
-        static void SaveDictionaryAndRebuild(string assetPath, string content)
+        public static void SaveDictionaryAsset(string assetPath, string content, bool isUpdateNursesInScene = true)
         {
             File.WriteAllText(assetPath, content); // Save as a plain text file
             AssetDatabase.Refresh();
-            ThaiTextNurse.RebuildDictionary();
+            ThaiTextNurse.RebuildDictionary(isUpdateNursesInScene);
         }
 
         static string[] GetWords(string input)
@@ -53,7 +53,7 @@ namespace PhEngine.ThaiTextCare.Editor
             return input.Split(' ').Select(w => w.Trim()).ToArray();
         }
 
-        public static void RemoveWordsFromDictionary(string pendingWords)
+        public static void RemoveWordsFromDictionary(string pendingWords, bool isUpdateNursesInScene = true)
         {
             var settings = ThaiTextCareSettings.PrepareInstance();
             if (!ThaiTextNurse.TryLoadDictionaryAsset(settings, out var textAsset))
@@ -69,7 +69,7 @@ namespace PhEngine.ThaiTextCare.Editor
                     succeedList.Add(word);
             }
             var content = string.Join(System.Environment.NewLine, dictionaryWordList);
-            SaveDictionaryAndRebuild(assetPath, content);
+            SaveDictionaryAsset(assetPath, content, isUpdateNursesInScene);
             var message = succeedList.Count == 1 ? "Removed '" + succeedList.FirstOrDefault() + "'" : "Removed " + succeedList.Count + " Words";
             Debug.Log("Removed: " + string.Join(", ", succeedList));
             SceneView.lastActiveSceneView.ShowNotification(new GUIContent(message), 1f);

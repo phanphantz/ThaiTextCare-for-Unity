@@ -79,7 +79,9 @@ namespace PhEngine.ThaiTextCare.Editor
             }
 
             EditorGUILayout.Space();
-            DrawDictionarySection();
+            if (DrawDictionarySection())
+                return;
+            
             EditorGUILayout.EndVertical();
             EditorGUI.EndDisabledGroup();
 
@@ -95,11 +97,10 @@ namespace PhEngine.ThaiTextCare.Editor
                 GUIUtility.systemCopyBuffer = nurse.OutputString;
                 SceneView.lastActiveSceneView.ShowNotification(new GUIContent("Copied Output to Clipboard"), 1f);
             }
-
             EditorGUILayout.EndHorizontal();
         }
 
-        void DrawDictionarySection()
+        bool DrawDictionarySection()
         {
             EditorGUILayout.BeginHorizontal();
             if (GUILayout.Button("\u2192", EditorStyles.miniButton, GUILayout.ExpandWidth(false)))
@@ -115,8 +116,8 @@ namespace PhEngine.ThaiTextCare.Editor
             if (GUILayout.Button("Force Rebuild", EditorStyles.linkLabel, GUILayout.ExpandWidth(false)))
             {
                 ThaiTextNurse.RebuildDictionary();
+                return true;
             }
-
             EditorGUILayout.EndHorizontal();
 
             EditorGUI.indentLevel++;
@@ -128,16 +129,19 @@ namespace PhEngine.ThaiTextCare.Editor
             {
                 if (!string.IsNullOrEmpty(pendingWords))
                     ThaiTextCareEditorCore.RemoveWordsFromDictionary(pendingWords.Trim());
+                return true;
             }
 
             if (GUILayout.Button("Add", GUILayout.ExpandWidth(false)))
             {
                 if (!string.IsNullOrEmpty(pendingWords))
                     ThaiTextCareEditorCore.AddWordsToDictionary(pendingWords.Trim());
+                return true;
             }
 
             EditorGUILayout.EndHorizontal();
             EditorGUI.indentLevel--;
+            return false;
         }
 
         void PropertyField(string fieldName)

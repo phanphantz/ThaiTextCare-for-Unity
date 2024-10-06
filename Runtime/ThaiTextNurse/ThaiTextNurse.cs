@@ -212,11 +212,35 @@ namespace PhEngine.ThaiTextCare
 
         public static void RebuildDictionary(bool isUpdateNursesInScene = true)
         {
-            if (!TryRebuildDictionary(ThaiTextCareSettings.PrepareInstance()))
-                throw new InvalidOperationException("Failed to setup Dictionary for ThaiTextNurse");
-
-            if (isUpdateNursesInScene)
-                UpdateAllNursesInScene();
+#if UNITY_EDITOR
+            EditorUtility.DisplayProgressBar("Rebuilding Dictionary", "Setting up the dictionary...", 0.25f);
+#endif
+            try
+            {
+                if (!TryRebuildDictionary(ThaiTextCareSettings.PrepareInstance()))
+                {
+#if UNITY_EDITOR
+                    EditorUtility.ClearProgressBar();
+#endif
+                    throw new InvalidOperationException("Failed to setup Dictionary for ThaiTextNurse");
+                }
+#if UNITY_EDITOR
+                EditorUtility.DisplayProgressBar("Rebuilding Dictionary", "Dictionary setup completed", 0.9f);
+#endif
+                if (isUpdateNursesInScene)
+                {
+#if UNITY_EDITOR
+                    EditorUtility.DisplayProgressBar("Rebuilding Dictionary", "Updating nurses...", 0.95f);
+#endif 
+                    UpdateAllNursesInScene();
+                }
+            }
+            finally
+            {
+#if UNITY_EDITOR
+                EditorUtility.ClearProgressBar();
+#endif
+            }
         }
 
         public static void UpdateAllNursesInScene()
