@@ -36,7 +36,7 @@ namespace PhEngine.ThaiTextCare
 #if UNITY_EDITOR
                     //Try check default dictionary if installed ThaiTextCare as a package
                     var packageDictionaryPath = Path.GetFullPath("Packages/com.phengine.thaitextcare/Resources/dictionary.txt");
-                    if (!string.IsNullOrEmpty(packageDictionaryPath))
+                    if (!string.IsNullOrEmpty(packageDictionaryPath) && File.Exists(packageDictionaryPath))
                     {
                         var targetPath = Path.Combine(Application.dataPath, PluginsFolderPath, "dictionary.txt");
                         if (!File.Exists(targetPath))
