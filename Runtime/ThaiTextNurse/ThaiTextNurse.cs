@@ -129,7 +129,7 @@ namespace PhEngine.ThaiTextCare
 
         string Tokenize()
         {
-            var request = new TokenizeRequest(outputString, separator, tmpText.enableWordWrapping, tmpText.richText);
+            var request = new TokenizeRequest(outputString, separator, true, tmpText.richText);
             if (TryTokenize(request, out var result))
             {
                 lastWordCount = result.WordCount;
