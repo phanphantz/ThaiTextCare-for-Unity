@@ -3,10 +3,11 @@ This library provides enhanced Thai language support for Unity's TextMeshPro suc
 
 ### Overview
 - [**ThaiTextNurse**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#thaitextnurse) - A Real-time Text Tokenizer component. Provide robust Thai word segmentation on TextMeshPro components.
-- [**ThaiFontDoctor**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#) - An Editor tool for automating Thai Font Glyph Adjustments for TMP_FontAsset. Can be used to solve overlapped vowels/tone marks which is a common issues in Thai font rendering.
+- [**ThaiFontDoctor**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#thaifontdoctor) - An Editor tool for automating Thai Font Glyph Adjustments for TMP_FontAsset. Can be used to solve overlapped vowels/tone marks which is a common issues in Thai font rendering.
 - **Other Topics**
-  - [**How to Install Thai Text Care**]()
-  - [**Thai Font Modification using FontForge**]()
+  - [**How to Install Thai Text Care**](./#thaifontdoctor)
+  - [**Thai Font Modification using FontForge**](#thaifontdoctor)
+  - [**Credits & Inspirations**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#thaifontdoctor)
 
 # ThaiTextNurse
 This component tokenizes and separates Thai words on TextMeshPro components using **Zero Width Space**. Just attach it to any TextMeshPro component and you're all set! It will beautifully wrap the Thai text for you!
@@ -112,7 +113,42 @@ Installing the package via the Package Manager allows you to easily install or u
 4. That's it! You're all set!
 
 # Thai Font Modification using FontForge
-To modify your Thai font extended character glyphs to have correct unicode, follow these steps :
-1. Download FontForge
-2. Open the desired font with FontForge (On Windows, you can use **Open With...** from the Right-click menu and Choose **FontForge**)
-3. You will need to map the extended characters to the correct unicodes by yourself or use Python to automate the process.
+To modify your Thai font extended character glyphs to have the correct Unicode, follow these steps :
+1. Download [**FontForge**](https://fontforge.org/en-US/)
+2. Open the desired font with **FontForge** (On Windows, you can use **Open With...** from the Right-click menu and Choose **FontForge**)
+3. You will need to map the extended characters to the correct Unicode by yourself by right-clicking on the target glyph > Glyph Info... > Then edit the Unicode field to the correct value. A Python script can also be used to automate the process. You can copy glyphs by their names to the target Unicode, but the challenge is that many fonts use different naming conventions for their characters 
+
+According to [**C90 encoding**](https://github.com/SaladLab/Unity3D.ThaiFontAdjuster/blob/master/docs/UnderTheHood.md#the-c90-encoding-for-thai), Extended glyphs consist of:
+
+| Code      | Description         | C90 Category  |
+| --------- | ------------------- | ------------- |
+| U+F700    | uni0E10.descless    | base.descless |
+| U+F701~04 | uni0E34~37.left     | upper.left    |
+| U+F705~09 | uni0E48~4C.lowleft  | top.lowleft   |
+| U+F70A~0E | uni0E48~4C.low      | top.low       |
+| U+F70F    | uni0E0D.descless    | base.descless |
+| U+F710~12 | uni0E31,4D,47.left  | upper.left    |
+| U+F713~17 | uni0E48~4C.left     | top.left      |
+| U+F718~1A | uni0E38~3A.low      | lower.low     |
+
+Here’s a summary of the Thai characters in each row:
+- U+F700: ฏ (To Patak)
+- U+F701~04: ิ, ี, ึ, ื (Sara I, Sara II, Sara UE, Sara UEE)
+- U+F705~09: ่, ้, ๊, ๋, ์ (Tone marks: Mai Ek, Mai Tho, Mai Tri, Mai Chattawa, Thanthakhat)
+- U+F70A~0E: ่, ้, ๊, ๋, ์ (Same tone marks as above, different positioning)
+- U+F70F: ญ (Yo Ying)
+- U+F710~12: ั, ํ, ็ (Sara Am, Yamakkan, Mai Taikhu)
+- U+F713~17: ่, ้, ๊, ๋, ์ (Tone marks again, different positioning)
+- U+F718~1A: ุ, ู, ฺ (Sara U, Sara UU, Phinthu)
+
+4. After you modify the glyphs, You can now Export the font and use it to create TMP_FontAsset in Unity.
+
+# Credits & Inspirations
+- Huge thanks to **SaladLab** for the [**ThaiFontAdjuster**](https://github.com/SaladLab/Unity3D.ThaiFontAdjuster), which is the approach for correcting characters using extended glyphs.
+- I would also like to express my gratitude to **Chaiwat Matarak** for [**ThaiStringTokenizer**](https://github.com/chaiwatmat/ThaiStringTokenizer). The dictionary file used in this project is based on his work, and it also inspired the creation of my own PhTokenizer class.
+- A special thanks to **Onchulee** for the [**ThaiText**](https://github.com/Onchulee/ThaiText) repository which also inspired me about how to handle the Dictionary effectively. His C# implementation of the **LexTo **library for word segmentation is also an impressive work.
+
+You are all true heroes—thank you for inspiring me!.
+
+With gratitude,
+<br>Phun
