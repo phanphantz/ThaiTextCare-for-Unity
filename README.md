@@ -141,7 +141,10 @@ Installing the package via the Package Manager allows you to easily install or u
 1. In UnityEditor, Go to **Window > Package Manager**
 2. Click + button and choose **Add package by git URL**
 3. Use this link to install the package: https://github.com/phanphantz/ThaiTextCare-for-Unity.git
-4. That's it! You're all set! Make sure to check out the example assets under **Packages/Thai Text Care/Examples**
+4. That's it! You're all set!
+
+**TIP:** You can drag the **Examples** folder under **Packages/Thai Text Care/** into the **Assets** folder to easily copy example assets into your project.
+<img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/ThaiTextCare_ExamplesFolder.png" width="300">
 
 # Known Issues
 - If your font asset modifications aren't showing up in TextMeshPro components, it might indicate an issue with TextMeshPro's `EventManager` logic. If this happens, try restarting the Unity Editor to resolve the problem.
