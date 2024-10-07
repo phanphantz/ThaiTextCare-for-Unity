@@ -145,11 +145,12 @@ Installing the package via the Package Manager allows you to easily install or u
 
 ### Other Considerations
 - Please be aware that installing the library via Package Manager is not an ideal method if you wish to modify the source code. Any changes made to files within the Packages folder will be lost if the package is re-downloaded, and those modifications aren't tracked by GIT if the Packages folder is included in the `.gitignore` file.
-- To easily copy the example assets into your project, You can drag the **Examples** folder from under **Packages/Thai Text Care/** into the **Assets** folder. 
+- To easily copy the example assets into your project, You can drag the **Examples** folder from under **Packages/Thai Text Care/** into the **Assets** folder.
+<p align="center">
 <br>
+<img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/ThaiTextCare_ExamplesFolder.jpeg" width="200">
 <br>
-<img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/ThaiTextCare_ExamplesFolder.jpeg" width="300">
-<br>
+</p>
 
 # Known Issues
 - If your font asset modifications aren't showing up in TextMeshPro components, it might indicate an issue with TextMeshPro's `EventManager` logic. If this happens, try restarting the Unity Editor to resolve the problem.
