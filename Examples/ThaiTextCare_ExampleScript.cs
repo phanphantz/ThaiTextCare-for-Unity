@@ -2,9 +2,10 @@ using PhEngine.ThaiTextCare;
 using TMPro;
 using UnityEngine;
 
-public class ThaiTextCareExampleScript : MonoBehaviour
+public class ThaiTextCare_ExampleScript : MonoBehaviour
 {
     [SerializeField] TMP_InputField inputField;
+    [SerializeField] TMP_InputField separatorInputField;
     [SerializeField] TMP_Text outputText;
     [SerializeField] TMP_Text wordCountText;
     [SerializeField] ThaiTextNurse nurse;
@@ -12,12 +13,18 @@ public class ThaiTextCareExampleScript : MonoBehaviour
     void Start()
     {
         nurse.OnTokenized += result => RefreshWordCount(result.WordCount);
-        inputField.onValueChanged.AddListener(OnValueChanged);
+        inputField.onValueChanged.AddListener(OnOriginalMessageChanged);
+        separatorInputField.onValueChanged.AddListener(OnSeparatorChanged);
     }
 
-    void OnValueChanged(string input)
+    void OnOriginalMessageChanged(string input)
     {
         outputText.text = input;
+    }
+
+    void OnSeparatorChanged(string value)
+    {
+        nurse.Separator = value;
     }
 
     void RefreshWordCount(int count)
