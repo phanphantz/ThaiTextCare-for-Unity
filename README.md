@@ -16,19 +16,19 @@ This library provides enhanced Thai language support for Unity's TextMeshPro suc
   - [**Credits & Inspirations**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#credits--inspirations)
 
 # ThaiTextNurse
-This component tokenizes and separates Thai words on TextMeshPro components using **Zero Width Space**. Just attach it to any TextMeshPro component and you're all set! It will beautifully wrap the Thai text for you!
+This component tokenizes and separates Thai words on TextMeshPro components using `**Zero Width Space**`. Just attach it to any TextMeshPro component and you're all set! It will beautifully wrap the Thai text for you!
 
 <img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/ThaiTextNurse.jpeg" width="1000">
 
 **Key Features**
 - **Real-time Tokenization** - It updates in real-time when the text is modified via the Inspector or Script.
-- **Word Breaks GUI** - The word segmentation is visualized in the **Scene View**. You can configure the visualization using **GUIMode** and G**UIColor**
+- **Word Breaks GUI** - The word segmentation is visualized in the **Scene View**. You can configure the visualization using `**GUIMode**` and `**GUIColor**`
 - **Dictionary Edit** - If tokenization is incorrect for unknown words, you can easily Add or Remove words from the dictionary directly through the **Dictionary** section on the ThaiTextNurse Inspector.
 - **Custom Separator** - You can insert a **custom separator** before each word breaks.
-- **Glyph Correction** - You can set **Correction** option to **YoorYingAndToorTaan or FullC90** to fix the issues where the lower vowels like 'ุ' and 'ู' get overlapped with characters like 'ญ' and 'ฐ'. But the font you use must support [**C90 encoding**](https://github.com/SaladLab/Unity3D.ThaiFontAdjuster/blob/master/docs/UnderTheHood.md#the-c90-encoding-for-thai). If not, you can try to modify it using [**Fontforge**](https://fontforge.org/en-US/). See [**Thai Font Modification using FontForge**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#thai-font-modification-using-fontforge) for more details.
+- **Glyph Correction** - You can set `**Correction**` option to **YoorYingAndToorTaan or FullC90** to fix the issues where the lower vowels like `'ุ'` and `'ู'` get overlapped with characters like `'ญ'` and `'ฐ'`. But the font you use must support [**C90 encoding**](https://github.com/SaladLab/Unity3D.ThaiFontAdjuster/blob/master/docs/UnderTheHood.md#the-c90-encoding-for-thai). If not, you can try to modify it using [**Fontforge**](https://fontforge.org/en-US/). See [**Thai Font Modification using FontForge**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#thai-font-modification-using-fontforge) for more details.
 
 ## Under The Hood
-- ThaiTextNurse makes no changes to the original text instead, it only modifies the displayed message using the TMP_Text component's **ITextPreprocessor** feature, so you can add or remove it without any side effects.
+- ThaiTextNurse makes no changes to the original text instead, it only modifies the displayed message using the `TMP_Text` component's `**ITextPreprocessor**` feature, so you can add or remove it without any side effects.
 - Behind the scenes, it uses a TrieNode structure with the Longest Match Searching technique.
 - The word segmentation relies on a simple **Text Dictionary** file located under the **Resources** folder.
 
@@ -38,15 +38,15 @@ This component tokenizes and separates Thai words on TextMeshPro components usin
   - UnityEditor starts up.
   - Scripts of ThaiTextCare assembly recompile.
   - The first ThaiTextNurse triggers the first tokenization during runtime.
-  - You **Force Rebuild** the dictionary either by pressing a button on ThaiTextNurse Inspector or by calling **ThaiTextNurse.RebuildDictionary()**
+  - You **Force Rebuild** the dictionary either by pressing a button on ThaiTextNurse Inspector or by calling `**ThaiTextNurse.RebuildDictionary()**`
 - If you modify the dictionary in any way other than Adding or Removing words via the ThaiTextNurse Inspector (e.g., by editing the dictionary file directly), you must manually Force Rebuild the dictionary by yourself.
-- In the dictionary file, each word is separated by **new line characters (\r\n, \n, \r)**, and words beginning with the **'/'** character are ignored by the tokenizer.
+- In the dictionary file, each word is separated by **new line characters (`\r\n`, `\n`, `\r`)**, and words beginning with the `**'/'**` character are ignored by the tokenizer.
 
 ## Scripting
 
 ### Runtime & Editor
-- You can manually call **ThaiTextNurse.RebuildDictionary()** or **RebuildDictionaryAsync()** (as a coroutine) to load the dictionary in advance during a loading screen to hide the performance hiccup from dictionary initialization which can be noticeable on low-end devices.
-- To get a tokenized version of any string, use one of the **ThaiTextNurse.SafeTokenize()** or **TryTokenize()** methods
+- You can manually call `**ThaiTextNurse.RebuildDictionary()**` or `**RebuildDictionaryAsync()**` (as a coroutine) to load the dictionary in advance during a loading screen to hide the performance hiccup from dictionary initialization which can be noticeable on low-end devices.
+- To get a tokenized version of any string, use one of the `**ThaiTextNurse.SafeTokenize()**` or `**TryTokenize()**` methods
 
 ```csharp
  // Example input string in Thai
@@ -70,14 +70,14 @@ else
 ```
 
 ### Editor-Only
-- In Editor, you can utilize **ThaiTextCareEditorCore.AddWordsToDictionary()**, **RemoveWordsFromDictionary()**, or **SaveDictionaryAsset()** to modify the dictionary via Editor scripting.
+- In Editor, you can utilize `**ThaiTextCareEditorCore.AddWordsToDictionary()**`, `**RemoveWordsFromDictionary()**`, or `**SaveDictionaryAsset()**` to modify the dictionary via Editor scripting.
 
 # ThaiFontDoctor
 ThaiFontDoctor is a ScriptableObject that processes TextMeshPro's TMP_FontAsset, automating adjustments to glyph pairs based on predefined Glyph Combinations.
 
 When you set a Glyph Combination, you specify which Thai character glyphs should pair together and the appropriate offset for each pair. ThaiFontDoctor then updates the GlyphAdjustmentTable in your TMP_FontAsset in real-time, making it easy to fine-tune how vowels and tone marks appear in your TMP_Text components.
 
-Take a look at **ThaiFontDoctor.asset** for an example. This instance of ThaiFontDoctor's ScriptableObject already has some common GlyphCombinations for solving Thai font issues on it:
+Take a look at `**ThaiFontDoctor.asset**` for an example. This instance of ThaiFontDoctor's ScriptableObject already has some common GlyphCombinations for solving Thai font issues on it:
 
 <img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/ThaiFontDoctor_Example.png" width="1000">
 
@@ -86,10 +86,10 @@ Take a look at **ThaiFontDoctor.asset** for an example. This instance of ThaiFon
 - On each GlyphCombination, you can specify the characters and adjustment offset of the **Leading Glyphs** and **Following Glyphs**. 
 - Use the **Create In Scene** button behind the **Tester TMP Text** field to quickly create a TMP Text component to see how the font is displayed in real-time.
 - Every action performed on the **ThaiFontDoctor** inspector is fully Undo-supported, so you can safely experiment with your adjustments.
-- When modifying Glyph Combination, You can use **GlyphPreset** to easily insert common Thai character sets, or choose the **กำหนดเอง (Custom)** preset to fine-tune specific glyphs as needed.
+- When modifying Glyph Combination, You can use `**GlyphPreset**` to easily insert common Thai character sets, or choose the **กำหนดเอง (Custom)** preset to fine-tune specific glyphs as needed.
   
 ## Glyph Presets
-Here are the available **GlyphPresets** and its glyph members :
+Here are the available `**GlyphPresets**` and its glyph members :
 | ThaiGlyphPreset | Display Name | Glyph Members | 
 |-----------------------|--------------------------|---------------------------------------------------------------------------------------------------| 
 | AllConsonants | ก - ฮ | ก, ข, ฃ, ค, ฅ, ฆ, ง, จ, ฉ, ช, ซ, ฌ, ญ, ฎ, ฏ, ฐ, ฑ, ฒ, ณ, ด, ต, ถ, ท, ธ, น, บ, ป, ผ, ฝ, พ, ฟ, ภ, ม, ย, ร, ล, ว, ศ, ษ, ส, ห, ฬ, อ, ฮ | 
@@ -119,7 +119,7 @@ Installing the package via the Package Manager allows you to easily install or u
 4. That's it! You're all set! Make sure to check out the example assets under **Packages/Thai Text Care/Examples**
 
 # Known Issues
-- If your font asset modifications aren't showing up in TextMeshPro components, it might indicate an issue with TextMeshPro's EventManager logic. If this happens, try restarting the Unity Editor to resolve the problem.
+- If your font asset modifications aren't showing up in TextMeshPro components, it might indicate an issue with TextMeshPro's `EventManager` logic. If this happens, try restarting the Unity Editor to resolve the problem.
 - You may encounter warnings like 'Unable to add the requested character to font asset ....'s atlas texture. Please make the texture .... readable' To fix this, follow the instructions on [this link](https://discussions.unity.com/t/unable-to-add-character-to-font-assets-atlas-texture/900612) to mark the font texture as readable.
 
 # Thai Font Modification using FontForge
