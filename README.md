@@ -4,10 +4,10 @@ This library provides enhanced Thai language support for Unity's TextMeshPro suc
 ‎️‍🔥Try it out now on [**WebGL Demo**](https://phanphantz.github.io/ThaiTextCare-Demo/)‎️‍🔥
 
 **Tested On** : 
-- **`Unity Editor 2021.3.2f`** with **`TextMeshPro 3.0.6`**
-- **`Unity Editor 2022.3.22f`** with **`TextMeshPro 3.0.9`**
+- ✅ **`Unity Editor 2021.3.2f`** with **`TextMeshPro 3.0.6`**
+- ✅ **`Unity Editor 2022.3.22f`** with **`TextMeshPro 3.0.9`**
 
-*Does not support TextMeshPro preview packages*
+*❌ Does not support TextMeshPro preview packages*
 
 ### Overview
 - [**ThaiTextNurse**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#thaitextnurse) - A Real-time Text Tokenizer component. Provide robust Thai word segmentation on TextMeshPro components.
