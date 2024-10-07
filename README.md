@@ -1,6 +1,8 @@
 # Thai Text Care for Unity
 This library provides enhanced Thai language support for Unity's TextMeshPro such as Thai Word Segmentation and Thai Font Glyphs fixer for overlapped vowels/tone marks, significantly improving your experience when working with Thai language in Unity.
 
+Try it out now on [**WebGL Demo**](https://phanphantz.github.io/ThaiTextCare-Demo/)!
+
 **Tested On** : 
 - **`Unity Editor 2021.3.2f`** with **`TextMeshPro 3.0.6`**
 - **`Unity Editor 2022.3.22f`** with **`TextMeshPro 3.0.9`**
