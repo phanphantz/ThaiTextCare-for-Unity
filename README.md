@@ -1,7 +1,9 @@
 # Thai Text Care for Unity
 This library provides enhanced Thai language support for Unity's TextMeshPro such as Thai Word Segmentation and Thai Font Glyphs fixer for overlapped vowels/tone marks, significantly improving your experience when working with Thai language in Unity.
 
-*Last Tested with : **Unity 2021.3.2f** & **TextMeshPro 3.0.6***
+**Tested On** : 
+- **`Unity Editor 2021.3.2f`** with **`TextMeshPro 3.0.6`**
+- **`Unity Editor 2022.3.22f`** with **`TextMeshPro 3.0.9`**
 
 ### Overview
 - [**ThaiTextNurse**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#thaitextnurse) - A Real-time Text Tokenizer component. Provide robust Thai word segmentation on TextMeshPro components.
@@ -14,6 +16,7 @@ This library provides enhanced Thai language support for Unity's TextMeshPro suc
 - **Other Topics:**
   - [**How to Install Thai Text Care**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#how-to-install-thai-text-care)
   - [**Known Issues**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#known-issues)
+  - [**Future Plans**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=future-plans)
   - [**Thai Font Modification using FontForge**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#thai-font-modification-using-fontforge)
   - [**Credits & Inspirations**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#credits--inspirations)
 
@@ -123,6 +126,11 @@ Installing the package via the Package Manager allows you to easily install or u
 # Known Issues
 - If your font asset modifications aren't showing up in TextMeshPro components, it might indicate an issue with TextMeshPro's `EventManager` logic. If this happens, try restarting the Unity Editor to resolve the problem.
 - You may encounter warnings like 'Unable to add the requested character to font asset ....'s atlas texture. Please make the texture .... readable' To fix this, follow the instructions on [this link](https://discussions.unity.com/t/unable-to-add-character-to-font-assets-atlas-texture/900612) to mark the font texture as readable.
+
+# Future Plans
+- Support the preview versions of the TextMeshPro package
+- Support using **`Addressables`** to load and manage the dictionary instead of **`Resources`**
+- Runtime modifications of the dictionary
 
 # Thai Font Modification using FontForge
 To modify your Thai font extended character glyphs to have the correct Unicode, follow these steps :
