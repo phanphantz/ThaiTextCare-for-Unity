@@ -22,7 +22,7 @@ This library provides enhanced Thai language support for Unity's TextMeshPro suc
   - [**Known Issues**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#known-issues)
   - [**Future Plans**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=future-plans)
   - [**Thai Font Modification using FontForge**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#thai-font-modification-using-fontforge)
-  - [**Credits & Inspirations**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#credits--inspirations)
+  - [**Acknowledgements**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#acknowledgements)
  
 <br>
 <p align="center">
@@ -195,7 +195,7 @@ Here’s a summary of the Thai characters in each row:
 
 4. After you modify the glyphs, You can now Export the font and use it to create TMP_FontAsset in Unity.
 
-# Credits & Inspirations
+# Acknowledgements
 - Huge thanks to **SaladLab** for the [**ThaiFontAdjuster**](https://github.com/SaladLab/Unity3D.ThaiFontAdjuster), which is the approach for correcting characters using extended glyphs.
 - I would also like to express my gratitude to **Chaiwat Matarak** for [**ThaiStringTokenizer**](https://github.com/chaiwatmat/ThaiStringTokenizer). The dictionary file used in this project is based on his work, and it also inspired the creation of my own PhTokenizer class.
 - A special thanks to **Onchulee** for the [**ThaiText**](https://github.com/Onchulee/ThaiText) repository which inspired me about how to handle the Dictionary effectively. His C# implementation of the **LexTo** library for word segmentation is also an impressive work.
