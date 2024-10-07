@@ -3,7 +3,10 @@ This library provides enhanced Thai language support for Unity's TextMeshPro suc
 
 ‎️‍🔥Try it out now on [**WebGL Demo**](https://phanphantz.github.io/ThaiTextCare-Demo/)‎️‍🔥
 
-<img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/ThaiTextCare_GIF.gif" width="350">  <img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/ThaiFontDoctor_GIF.gif" height="350" width="600">
+<p align="center">
+<img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/ThaiTextCare_GIF.gif" width="350">  
+<img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/ThaiFontDoctor_GIF.gif" height="350" width="600">
+</p>
 
 **Tested On** : 
 - ✅ **`Unity Editor 2021.3.2f`** with **`TextMeshPro 3.0.6`**
