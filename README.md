@@ -36,7 +36,7 @@ This component tokenizes and separates Thai words on TextMeshPro components usin
 
 ## Under The Hood
 - ThaiTextNurse makes no changes to the original text instead, it only modifies the displayed message using the `TMP_Text` component's **`ITextPreprocessor`** feature, so you can add or remove it without any side effects.
-- Behind the scenes, it uses a TrieNode structure with the Longest Match Searching technique.
+- Behind the scenes, it uses a TrieNode structure with the Longest Match Searching technique. See [`PhTokenizer.cs`](./Runtime/ThaiTextNurse/PhTokenizer.cs) for searching and tokenization logic.
 - The word segmentation relies on a simple **Text Dictionary** file located under the **Resources** folder.
 
 ## Handling the Dictionary
