@@ -137,7 +137,7 @@ Here are the available **`GlyphPresets`** and its glyph members :
 You have 2 options for installing the library. Either via the package manager (Recommended) or by downloading this repository and putting it in your Unity Projects. 
 
 ### Package Manager Installation
-Installing the package via the Package Manager allows you to easily install or update ThaiTextCare as a third-party library. However, this method is not suitable if you wish to modify the source code.
+Installing the package via the Package Manager allows you to easily install or update ThaiTextCare as a third-party library. However, be aware that this method is not ideal if you need to modify the source code. Any changes made to files within the Packages folder will be lost if the package is re-downloaded, and those modifications aren't tracked by GIT if the Packages folder is included in the `.gitignore` file.
 1. In UnityEditor, Go to **Window > Package Manager**
 2. Click + button and choose **Add package by git URL**
 3. Use this link to install the package: https://github.com/phanphantz/ThaiTextCare-for-Unity.git
