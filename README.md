@@ -120,7 +120,7 @@ Installing the package via the Package Manager allows you to easily install or u
 
 # Known Issues
 - If your font asset modifications aren't showing up in TextMeshPro components, it might indicate an issue with TextMeshPro's EventManager logic. If this happens, try restarting the Unity Editor to resolve the problem.
-- You may encounter warnings like 'Unable to add the requested character to font asset ....'s atlas texture. Please make the texture .... readable' To fix this, follow the instructions on [this link](https://discussions.unity.com/t/unable-to-add-character-to-font-assets-atlas-texture/900612)
+- You may encounter warnings like 'Unable to add the requested character to font asset ....'s atlas texture. Please make the texture .... readable' To fix this, follow the instructions on [this link](https://discussions.unity.com/t/unable-to-add-character-to-font-assets-atlas-texture/900612) to mark the font texture as readable.
 
 # Thai Font Modification using FontForge
 To modify your Thai font extended character glyphs to have the correct Unicode, follow these steps :
