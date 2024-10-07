@@ -70,6 +70,44 @@ This component tokenizes and separates Thai words on TextMeshPro components usin
 ## Scripting
 
 ### Runtime & Editor
+- To receive a notification when ThaiTextNurse completes text tokenization process, you can bind callbacks to `ThaiTextNurse.OnTokenized` event.
+```csharp
+    public class ThaiTextCare_ExampleScript : MonoBehaviour
+    {
+        [SerializeField] TMP_InputField inputField;
+        [SerializeField] TMP_InputField separatorInputField;
+        [SerializeField] TMP_Text outputText;
+        [SerializeField] TMP_Text wordCountText;
+        [SerializeField] ThaiTextNurse nurse;
+
+        void Start()
+        {
+            nurse.OnTokenized += result => RefreshWordCount(result.WordCount);
+            inputField.onValueChanged.AddListener(OnOriginalMessageChanged);
+            separatorInputField.onValueChanged.AddListener(OnSeparatorChanged);
+        }
+
+        void OnOriginalMessageChanged(string input)
+        {
+            //this outputText has a ThaiTextNurse attached, so it will be tokenized
+            outputText.text = input;
+
+            //Do not get the tokenized text here, rely on OnTokenized event binding in Start() instead
+        }
+
+        void OnSeparatorChanged(string value)
+        {
+            nurse.Separator = value;
+        }
+
+        void RefreshWordCount(int count)
+        {
+            wordCountText.text = count.ToString("N0") + " Words";
+        }
+    }
+
+```
+
 - You can manually call **`ThaiTextNurse.RebuildDictionary()`** or **`RebuildDictionaryAsync()`** (as a coroutine) to load the dictionary in advance during a loading screen to hide the performance hiccup from dictionary initialization which can be noticeable on low-end devices.
 - To get a tokenized version of any string, use one of the **`ThaiTextNurse.SafeTokenize()`** or **`TryTokenize()`** methods
 
