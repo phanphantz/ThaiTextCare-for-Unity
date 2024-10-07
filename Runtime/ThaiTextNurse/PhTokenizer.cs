@@ -61,10 +61,15 @@ namespace PhEngine.ThaiTextCare
                         wasOpenBracket = true;
                         continue;
                     }
-                    
-                    if (IsCloseBracket(c) || c == 'ๆ' || c == 'ฯ')
+
+                    var isThaiEndCharacter = IsThaiEndCharacter(c);
+                    if (IsCloseBracket(c) || isThaiEndCharacter)
                     {
-                        longestMatch = input.Substring(i, j - i+1);
+                        //Check if the end character is followed by a close bracket
+                        if (isThaiEndCharacter && j < length - 1 && IsCloseBracket(input[j + 1]))
+                            j++;
+                        
+                        longestMatch = input.Substring(i, j - i + 1);
                         break;
                     }
                     
@@ -224,6 +229,11 @@ namespace PhEngine.ThaiTextCare
                    c == '\u0E4A' || // ๊
                    c == '\u0E4B' || // ๋
                    c == 'ๆ' || c == 'ฯ' || c == 'ๅ';
+        }
+
+        static bool IsThaiEndCharacter(char c)
+        {
+            return c == 'ๆ' || c == 'ฯ';
         }
     }
 }
