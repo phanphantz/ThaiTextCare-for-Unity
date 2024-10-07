@@ -1,18 +1,12 @@
 # Thai Text Care for Unity
 This library provides enhanced Thai language support for Unity's TextMeshPro such as Thai Word Segmentation and Thai Font Glyphs fixer for overlapped vowels/tone marks, significantly improving your experience when working with Thai language in Unity.
 
-‎️‍🔥Try it out now on [**WebGL Demo**](https://phanphantz.github.io/ThaiTextCare-Demo/)‎️‍🔥
+‎️‍🔥**See it in Action:** [**Try WebGL Demo**](https://phanphantz.github.io/ThaiTextCare-Demo/)‎️‍🔥<br>
 
-<p align="center">
-<img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/ThaiTextCare_GIF.gif" width="350">  
-<img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/ThaiFontDoctor_GIF.gif" height="350" width="600">
-</p>
-
-**Tested On** : 
+**Tested On:**
 - ✅ **`Unity Editor 2021.3.2f`** with **`TextMeshPro 3.0.6`**
 - ✅ **`Unity Editor 2022.3.22f`** with **`TextMeshPro 3.0.9`**
-
-*❌ Does not support TextMeshPro preview packages*
+- ❌ Does not support TextMeshPro preview packages*
 
 ### Overview
 - [**ThaiTextNurse**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#thaitextnurse) - A Real-time Text Tokenizer component. Provide robust Thai word segmentation on TextMeshPro components.
@@ -28,6 +22,22 @@ This library provides enhanced Thai language support for Unity's TextMeshPro suc
   - [**Future Plans**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=future-plans)
   - [**Thai Font Modification using FontForge**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#thai-font-modification-using-fontforge)
   - [**Credits & Inspirations**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#credits--inspirations)
+ 
+<br>
+<p align="center">
+<img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/ThaiTextCare_GIF.gif" width="65%">  
+</p>
+<p align="center">
+<i>Thai Word Segmentation</i>
+</p>
+<br>
+<p align="center">
+<img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/ThaiFontDoctor_GIF.gif" width="65%">
+</p>
+<p align="center">
+<i>Thai Glyph Adjustment Automation</i>
+</p>
+<br>
 
 # ThaiTextNurse
 This component tokenizes and separates Thai words on TextMeshPro components using **`Zero Width Space`**. Just attach it to any TextMeshPro component and you're all set! It will beautifully wrap the Thai text for you!
@@ -123,7 +133,7 @@ Here are the available **`GlyphPresets`** and its glyph members :
 - The multi-edit feature is not supported.
 
 # How to Install Thai Text Care
-You have 2 options for installing the library. Either via the package manager (Recommended) or by downloading this repository and putting it in your Unity Projects.
+You have 2 options for installing the library. Either via the package manager (Recommended) or by downloading this repository and putting it in your Unity Projects. 
 
 ### Package Manager Installation
 Installing the package via the Package Manager allows you to easily install or update ThaiTextCare as a third-party library. However, this method is not suitable if you wish to modify the source code.
