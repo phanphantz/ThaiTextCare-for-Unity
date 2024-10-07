@@ -11,18 +11,17 @@ public class ThaiTextCareExampleScript : MonoBehaviour
 
     void Start()
     {
+        nurse.OnTokenized += result => RefreshWordCount(result.WordCount);
         inputField.onValueChanged.AddListener(OnValueChanged);
-        RefreshWordCount();
     }
 
     void OnValueChanged(string input)
     {
         outputText.text = input;
-        RefreshWordCount();
     }
 
-    void RefreshWordCount()
+    void RefreshWordCount(int count)
     {
-        wordCountText.text = nurse.LastWordCount.ToString("N0") + " Words";
+        wordCountText.text = count.ToString("N0") + " Words";
     }
 }
