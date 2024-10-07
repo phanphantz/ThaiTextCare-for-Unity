@@ -34,11 +34,11 @@ This component tokenizes and separates Thai words on TextMeshPro components usin
 
 ## Handling the Dictionary
 - The dictionary used by the ThaiTextCore package must always be under any of the project folders named **'Resources'**. You can specify the resource sub-directory path and other global settings of ThaiTextCare at **Project Settings > Thai Text Care Settings**
-- The dictionary is loaded/reloaded automatically when these events happen :
-  - When the UnityEditor starts up.
-  - When the scripts of ThaiTextCare assembly recompile.
-  - When the first ThaiTextNurse triggers the first tokenization during runtime.
-  - When you **Force Rebuild** the dictionary either by pressing a button on ThaiTextNurse Inspector or by calling **ThaiTextNurse.RebuildDictionary()**
+- The dictionary is loaded/reloaded automatically when :
+  - UnityEditor starts up.
+  - Scripts of ThaiTextCare assembly recompile.
+  - The first ThaiTextNurse triggers the first tokenization during runtime.
+  - You **Force Rebuild** the dictionary either by pressing a button on ThaiTextNurse Inspector or by calling **ThaiTextNurse.RebuildDictionary()**
 - If you modify the dictionary in any way other than Adding or Removing words via the ThaiTextNurse Inspector (e.g., by editing the dictionary file directly), you must manually Force Rebuild the dictionary by yourself.
 - In the dictionary file, each word is separated by **new line characters (\r\n, \n, \r)**, and words beginning with the **'/'** character are ignored by the tokenizer.
 
