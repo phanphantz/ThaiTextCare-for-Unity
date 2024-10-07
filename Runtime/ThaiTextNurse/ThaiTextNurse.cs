@@ -67,6 +67,8 @@ namespace PhEngine.ThaiTextCare
         bool isRebuildRequired;
         [SerializeField, HideInInspector] bool isInitialized;
 
+        public event Action<TokenizeResult> OnTokenized;
+
         void Awake()
         {
             if (tmpText == null)
@@ -134,6 +136,7 @@ namespace PhEngine.ThaiTextCare
             {
                 lastWordCount = result.WordCount;
                 outputString = result.Result;
+                OnTokenized?.Invoke(result);
             }
             return outputString;
         }
