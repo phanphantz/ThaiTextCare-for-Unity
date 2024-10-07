@@ -201,7 +201,7 @@ namespace PhEngine.ThaiTextCare
                 input = input.Replace(wordBreakCharacter, string.Empty);
             
             var words = tokenizer.Tokenize(input,  tokenizeRequest.IsSupportRichText);
-            result = new TokenizeResult(string.Join(finalSeparator, words), words.Count);
+            result = new TokenizeResult(string.Join(finalSeparator, words), words.Count(w => !string.IsNullOrEmpty(w.Trim())));
             return true;
         }
 
