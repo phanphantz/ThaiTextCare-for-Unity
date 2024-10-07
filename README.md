@@ -128,7 +128,7 @@ Installing the package via the Package Manager allows you to easily install or u
 # Known Issues
 - If your font asset modifications aren't showing up in TextMeshPro components, it might indicate an issue with TextMeshPro's `EventManager` logic. If this happens, try restarting the Unity Editor to resolve the problem.
 - You may encounter warnings like 'Unable to add the requested character to font asset ....'s atlas texture. Please make the texture .... readable' To fix this, follow the instructions on [this link](https://discussions.unity.com/t/unable-to-add-character-to-font-assets-atlas-texture/900612) to mark the font texture as readable.
-- While ThaiTextNurse works with TextMeshPro components in TMP_InputField, the caret position in the input field may display incorrectly due to the injected Zero Width Space characters in the text. I have yet to find an effective solution to fully support InputField.
+- While ThaiTextNurse works with TextMeshPro components in `TMP_InputField`, the caret position in the input field may display incorrectly due to the injected Zero Width Space characters in the text. I have yet to find an effective solution to fully support `TMP_InputField`.
 
 # Future Plans
 - Support the preview versions of the TextMeshPro package
