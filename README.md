@@ -222,11 +222,11 @@ According to [**C90 encoding**](https://github.com/SaladLab/Unity3D.ThaiFontAdju
 | U+F718~1A | uni0E38~3A.low      | lower.low     |
 
 Here’s a summary of the Thai characters in each row:
-- U+F700: ฏ (To Patak)
+- U+F700: ฐ ไม่มีเชิง (Descender-less Toor Than)
 - U+F701~04: ิ, ี, ึ, ื (Sara I, Sara II, Sara UE, Sara UEE)
 - U+F705~09: ่, ้, ๊, ๋, ์ (Tone marks: Mai Ek, Mai Tho, Mai Tri, Mai Chattawa, Thanthakhat)
 - U+F70A~0E: ่, ้, ๊, ๋, ์ (Same tone marks as above, different positioning)
-- U+F70F: ญ (Yo Ying)
+- U+F70F: ญ ไม่มีเชิง (Descender-less Yo Ying)
 - U+F710~12: ั, ํ, ็ (Sara Am, Yamakkan, Mai Taikhu)
 - U+F713~17: ่, ้, ๊, ๋, ์ (Tone marks again, different positioning)
 - U+F718~1A: ุ, ู, ฺ (Sara U, Sara UU, Phinthu)
