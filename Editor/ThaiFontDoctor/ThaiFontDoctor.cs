@@ -4,6 +4,20 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 
+#if TMP_3_2_0_PRE_2 || UGUI_2_0
+
+using GlyphAdjustmentRecord = UnityEngine.TextCore.LowLevel.GlyphAdjustmentRecord;
+using GlyphPairAdjustmentRecord = UnityEngine.TextCore.LowLevel.GlyphPairAdjustmentRecord;
+using GlyphValueRecord = UnityEngine.TextCore.LowLevel.GlyphValueRecord;
+
+#else
+
+using GlyphAdjustmentRecord = TMPro.TMP_GlyphAdjustmentRecord;
+using GlyphPairAdjustmentRecord = TMPro.TMP_GlyphPairAdjustmentRecord;
+using GlyphValueRecord = TMPro.TMP_GlyphValueRecord;
+
+#endif
+
 namespace PhEngine.ThaiTextCare.Editor
 {
     [CreateAssetMenu(menuName = "ThaiTextCare/ThaiFontDoctor", fileName = "ThaiFontDoctor", order = 0)]
@@ -21,7 +35,7 @@ namespace PhEngine.ThaiTextCare.Editor
         public TMP_FontAsset fontAsset;
         public List<GlyphCombination> glyphCombinationList = new List<GlyphCombination>();
 
-        [HideInInspector, SerializeField] List<TMP_GlyphPairAdjustmentRecord> cachedPairList = new List<TMP_GlyphPairAdjustmentRecord>();
+        [HideInInspector, SerializeField] List<GlyphPairAdjustmentRecord> cachedPairList = new List<GlyphPairAdjustmentRecord>();
 
         [ContextMenu(nameof(ApplyModifications))]
         public void ApplyModifications()
@@ -68,7 +82,7 @@ namespace PhEngine.ThaiTextCare.Editor
             }
         }
         
-        TMP_GlyphPairAdjustmentRecord GetPairAdjustmentRecord(uint firstGlyphIndex, uint secondGlyphIndex)
+        GlyphPairAdjustmentRecord GetPairAdjustmentRecord(uint firstGlyphIndex, uint secondGlyphIndex)
         {
             var adjustmentRecords = fontAsset.fontFeatureTable.glyphPairAdjustmentRecords;
             foreach (var record in adjustmentRecords)
@@ -77,15 +91,15 @@ namespace PhEngine.ThaiTextCare.Editor
                     record.secondAdjustmentRecord.glyphIndex == secondGlyphIndex)
                     return record;
             }
-
-            var firstAdjustment = new TMP_GlyphAdjustmentRecord(firstGlyphIndex, new TMP_GlyphValueRecord());
-            var secondAdjustment = new TMP_GlyphAdjustmentRecord(secondGlyphIndex, new TMP_GlyphValueRecord());
-            var newPairRecord = new TMP_GlyphPairAdjustmentRecord(firstAdjustment, secondAdjustment);
+            
+            var firstAdjustment = new GlyphAdjustmentRecord(firstGlyphIndex, new GlyphValueRecord());
+            var secondAdjustment = new GlyphAdjustmentRecord(secondGlyphIndex, new GlyphValueRecord());
+            var newPairRecord = new GlyphPairAdjustmentRecord(firstAdjustment, secondAdjustment);
             fontAsset.fontFeatureTable.glyphPairAdjustmentRecords.Add(newPairRecord);
             return newPairRecord;
         }
         
-        void ModifyPair(TMP_GlyphPairAdjustmentRecord pairRecord, GlyphCombination glyphCombination)
+        void ModifyPair(GlyphPairAdjustmentRecord pairRecord, GlyphCombination glyphCombination)
         {
             var firstRecord = pairRecord.firstAdjustmentRecord;
             firstRecord.glyphValueRecord = ApplyPlacement(glyphCombination.first, firstRecord);
@@ -93,7 +107,7 @@ namespace PhEngine.ThaiTextCare.Editor
             var secondRecord = pairRecord.secondAdjustmentRecord;
             secondRecord.glyphValueRecord = ApplyPlacement(glyphCombination.second, secondRecord);
 
-            var modifiedPair = new TMP_GlyphPairAdjustmentRecord(firstRecord, secondRecord);
+            var modifiedPair = new GlyphPairAdjustmentRecord(firstRecord, secondRecord);
             fontAsset.fontFeatureTable.glyphPairAdjustmentRecords.Remove(pairRecord);
             fontAsset.fontFeatureTable.glyphPairAdjustmentRecords.Add(modifiedPair);
             cachedPairList.Add(modifiedPair);
@@ -122,7 +136,7 @@ namespace PhEngine.ThaiTextCare.Editor
             ApplyModifications();
         }
 
-        static TMP_GlyphValueRecord ApplyPlacement(GlyphGroup group, TMP_GlyphAdjustmentRecord secondRecord)
+        static GlyphValueRecord ApplyPlacement(GlyphGroup group, GlyphAdjustmentRecord secondRecord)
         {
             var record = secondRecord.glyphValueRecord;
             record.xPlacement = group.xPlacement;
