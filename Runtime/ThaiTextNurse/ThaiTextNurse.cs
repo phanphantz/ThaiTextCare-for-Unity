@@ -352,18 +352,14 @@ namespace PhEngine.ThaiTextCare
                 return;
 
             var breakIndices = new List<int>();
-            var wordLeftCount = nurse.LastWordCount;
             for (int i = 0; i < nurse.CharacterInfoLength; i++)
             {
+                //This is needed because CharacterInfos are kind of unreliable on undo
+                if (i > nurse.outputString.Length)
+                    break;
+                
                 if (nurse.GetCharacterInfo(i).character == breakCharacter[0])
-                {
                     breakIndices.Add(i);
-                    
-                    //This is needed because CharacterInfos are kind of unreliable on undo
-                    wordLeftCount--;
-                    if (wordLeftCount <= 1)
-                        break;
-                }
             }
 
             var oldColor = Handles.color;
