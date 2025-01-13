@@ -5,9 +5,10 @@ This library provides enhanced Thai language support for Unity's TextMeshPro suc
 ☕**Buy Me a Coffee:** If this project made your day a bit easier, consider [**Buying me a coffee**](https://buymeacoffee.com/phanphantz)☕
 
 **Tested On:**
-- ✅ **`Unity Editor 2021.3.2f`** with **`TextMeshPro 3.0.6`**
-- ✅ **`Unity Editor 2022.3.22f`** with **`TextMeshPro 3.0.9`**
-- ❌ Does not support TextMeshPro preview packages
+- ✅ **`Unity 6`** with [**`com.unity.ugui 2.0.0`**](https://discussions.unity.com/t/2023-2-latest-development-on-textmesh-pro/917387)
+- ✅ **`Unity 2022.3.22f`** with **`TextMeshPro 3.2.0 Preview Versions`**
+- ✅ **`Unity 2022.3.22f`** with **`TextMeshPro 3.0.9`**
+- ✅ **`Unity 2021.3.2f`** with **`TextMeshPro 3.0.6`**
 
 ### Overview
 - [**ThaiTextNurse**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#thaitextnurse) - A Real-time Text Tokenizer component. Provide robust Thai word segmentation on TextMeshPro components.
@@ -190,13 +191,13 @@ Installing the package via the Package Manager allows you to easily install or u
 <br>
 </p>
 
-# Known Issues
+# Troubleshooting
+- Font letters are not showing up on the TextMeshPro components? Make sure that you have already pressed the TMP essential resources import button.
 - If your font asset modifications aren't showing up in TextMeshPro components, it might indicate an issue with TextMeshPro's `EventManager` logic. If this happens, try restarting the Unity Editor to resolve the problem.
 - You may encounter warnings like **'Unable to add the requested character to font asset ....'s atlas texture. Please make the texture .... readable'** To fix this, follow the instructions on [this link](https://discussions.unity.com/t/unable-to-add-character-to-font-assets-atlas-texture/900612) to mark the font texture as readable.
 - While ThaiTextNurse works with TextMeshPro components in `TMP_InputField`, the caret position in the input field may display incorrectly due to the injected Zero Width Space characters in the text. I have yet to find an effective solution to fully support `TMP_InputField`.
 
 # Future Plans
-- Support the preview versions of the TextMeshPro package
 - Support using **`Addressables`** to load and manage the dictionary instead of **`Resources`**
 - Runtime modifications of the dictionary
 
