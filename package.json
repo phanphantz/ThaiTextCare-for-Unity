@@ -1,7 +1,7 @@
 {
   "name": "com.phengine.thaitextcare",
   "displayName": "Thai Text Care",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A library that provides enhanced Thai language support for Unity's TextMeshPro such as Thai Word Segmentation and Thai Font Glyphs fixer for overlapped vowels/tone marks, significantly improving your experience when working with Thai language in Unity.",
   "keywords": [],
   "repository": {
