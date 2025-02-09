@@ -376,7 +376,7 @@ namespace PhEngine.ThaiTextCare
                 var charInfo = nurse.GetCharacterInfo(index);
                 Vector3 pos = nurse.transform.TransformPoint(charInfo.bottomRight);
                 float lineHeight = charInfo.pointSize * heightScale;
-                Handles.DrawLine(pos, pos + Vector3.up * lineHeight, 3f * widthScale);
+                Handles.DrawLine(pos, pos + (nurse.transform.up * lineHeight), 3f * widthScale);
             }
             Handles.color = oldColor;
 #endif
