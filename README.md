@@ -18,7 +18,7 @@ This library provides enhanced Thai language support for Unity's TextMeshPro suc
 - [**ThaiFontDoctor**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#thaifontdoctor) - An Editor tool for automating Thai Font Glyph Adjustments for TMP_FontAsset. Can be used to solve overlapped vowels/tone marks which is a common issue in Thai font rendering.
   - [**Glyph Presets**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#glyph-presets)
   - [**Limitations**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#limitations)
-- [**WordUtils & WordHighligher**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#WordUtils-&-WordHighligher) - Utilities to detect Thai or English words from mouse clicks and highlight them on TextMeshProUGUI components.
+- [**WordUtils & WordHighligher**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#wordutils--wordhighligher) - Utilities to detect Thai or English words from mouse clicks and highlight them on TextMeshProUGUI components.
   
 - **Other Topics:**
   - [**How to Install Thai Text Care**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#how-to-install-thai-text-care)
@@ -179,7 +179,11 @@ Here are the available **`GlyphPresets`** and its glyph members :
 - The `WordHighlighter` class utilizes the `WordUtils` class and can be used to display a 'highlight effect' on the word at the mouse click position.
   - A highlight effect can be added or removed at the mouse click position using the `WordHighligher.HighlightWordFromMouse()` or `WordHighligher.TryHighlightWordFromMouse()`. You can also implement your version of the effect by overriding the `Highlight` class.
   - See the `Highlights_ExampleScene` scene which contains `Highlight_ExampleScript.cs` and `HighlightAtMouseDown.cs` for the example of word highlighting implementation.
-<img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/WordHighlight_Example.gif" width="1000">
+<p align="center">
+<br>
+<img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/WordHighlight_Example.gif" width="600">
+<br>
+</p>
 
 # How to Install Thai Text Care
 You have 2 options for installing the library. Either via the package manager (Recommended) or by downloading this repository and putting it in your Unity Projects. 
