@@ -31,6 +31,8 @@ namespace PhEngine.ThaiTextCare.Utility
             hit = null;
             var characters = targetText.textInfo.characterInfo;
             var nearestCharacter = characters[characterInfoIndex].character;
+            if (IsEndOfWordOrSpace(nearestCharacter, customSeparators))
+                return false;
             
             var startIndex = FindNearestSeparator(characters, characterInfoIndex, -1, customSeparators);
             var endIndex = FindNearestSeparator(characters, characterInfoIndex, 1, customSeparators);
