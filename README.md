@@ -18,7 +18,7 @@ This library provides enhanced Thai language support for Unity's TextMeshPro suc
 - [**ThaiFontDoctor**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#thaifontdoctor) - An Editor tool for automating Thai Font Glyph Adjustments for TMP_FontAsset. Can be used to solve overlapped vowels/tone marks which is a common issue in Thai font rendering.
   - [**Glyph Presets**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#glyph-presets)
   - [**Limitations**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#limitations)
-- [**WordUtils & WordHighligher**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#worduils) - Utilities to detect Thai or English words from mouse clicks and highlight them on TextMeshProUGUI components.
+- [**WordUtils & WordHighligher**](https://github.com/phanphantz/ThaiTextCare-for-Unity/blob/main/README.md#WordUtils-&-WordHighligher) - Utilities to detect Thai or English words from mouse clicks and highlight them on TextMeshProUGUI components.
   
 - **Other Topics:**
   - [**How to Install Thai Text Care**](https://github.com/phanphantz/ThaiTextCare-for-Unity?tab=readme-ov-file#how-to-install-thai-text-care)
