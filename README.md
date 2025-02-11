@@ -42,6 +42,12 @@ This library provides enhanced Thai language support for Unity's TextMeshPro suc
 <i>Thai Glyph Adjustment Automation</i>
 </p>
 <br>
+<p align="center">
+<br>
+<img src="https://github.com/phanphantz/GameDevSecretSauce/blob/main/Assets/ThaiFontDoctor/WordHighlight_Example.gif" width="65%">
+<br>
+<i>Word Detection & Highlight</i>
+</p>
 
 # ThaiTextNurse
 This component tokenizes and separates Thai words on TextMeshPro components using **`Zero Width Space`**. Just attach it to any TextMeshPro component and you're all set! It will beautifully wrap the Thai text for you!
