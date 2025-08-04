@@ -1,3 +1,6 @@
+# 0.2.1 (04-08-2025)
+- Fixed bug where backslash ( \ ) is tokenized, so \n is not recognized as a newline character.
+
 # 0.2.0 (12-02-2025)
 - Fixed bug where ThaiTextNurse GUI line drawing is not using transform's up direction.
 - Added Word Detection Utility.
