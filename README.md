@@ -215,6 +215,8 @@ Installing the package via the Package Manager allows you to easily install or u
 - If your font asset modifications aren't showing up in TextMeshPro components, it might indicate an issue with TextMeshPro's `EventManager` logic. If this happens, try restarting the Unity Editor to resolve the problem.
 - You may encounter warnings like **'Unable to add the requested character to font asset ....'s atlas texture. Please make the texture .... readable'** To fix this, follow the instructions on [this link](https://discussions.unity.com/t/unable-to-add-character-to-font-assets-atlas-texture/900612) to mark the font texture as readable.
 - While ThaiTextNurse works with TextMeshPro components in `TMP_InputField`, the caret position in the input field may display incorrectly due to the injected Zero Width Space characters in the text. I have yet to find an effective solution to fully support `TMP_InputField`.
+- To fix the issue where some Thai letters aren't positioned at the same base height, you can try setting the TextMeshPro component's **Alignment** option to **Baseline**.
+- If the glyph adjustment Y offset value is high, it might alter TextMeshPro's line spacing, this is due to changed behaviour in the newer version of TextMeshPro. As a workaround, you can wrap your text with **<lineHeight=100%> </lineHeight>** tag.
 
 # Future Plans
 - Support using **`Addressables`** to load and manage the dictionary instead of **`Resources`**
