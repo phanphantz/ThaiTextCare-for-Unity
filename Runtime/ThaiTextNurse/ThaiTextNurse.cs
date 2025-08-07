@@ -24,6 +24,19 @@ namespace PhEngine.ThaiTextCare
             }
         }
         [SerializeField] ThaiGlyphCorrection correction;
+
+        public bool IsForceFullLineHeight
+        {
+            get => isForceFullLineHeight;
+            set
+            {
+                isForceFullLineHeight = value;
+                NotifyChange();
+            }
+        }
+        
+        [Tooltip("Force inject <line-height=100%> tag to the output string to fix the issue where line spacing increase as you modify the Glyph adjusment Y offset.")]
+        [SerializeField] bool isForceFullLineHeight;
         
         public bool IsTokenize
         {
@@ -126,7 +139,10 @@ namespace PhEngine.ThaiTextCare
             if (correction != ThaiGlyphCorrection.None)
                 outputString = ThaiFontAdjuster.Adjust(outputString, correction);
 
-            return outputString;
+            if (isForceFullLineHeight)
+                return $"<line-height=100%>{outputString}</line-height>";
+            else
+                return outputString;
         }
 
         string Tokenize()

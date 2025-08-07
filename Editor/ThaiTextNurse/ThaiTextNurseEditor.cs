@@ -26,7 +26,15 @@ namespace PhEngine.ThaiTextCare.Editor
             if (settings == null)
                 EditorGUILayout.HelpBox("ThaiTextCareSettings.asset is missing. It must be under: " + ThaiTextCareSettings.SettingsPath , MessageType.Error);
             else if (!ThaiTextNurse.IsDictionaryLoaded)
+            {
                 EditorGUILayout.HelpBox("Dictionary is not loaded. It must be under 'Resources' folder: " + ThaiTextNurse.GetDictionaryPath(settings) , MessageType.Error);
+                EditorGUILayout.BeginHorizontal();
+                GUILayout.FlexibleSpace();
+                var isRefresh = GUILayout.Button("Refresh", GUILayout.ExpandWidth(false));
+                EditorGUILayout.EndHorizontal();
+                if (isRefresh)
+                    ThaiTextNurse.RebuildDictionary();
+            }
             
             EditorGUI.BeginDisabledGroup(!ThaiTextNurse.IsDictionaryLoaded || settings == null);
             var currentText = nurse.OutputString;
@@ -50,6 +58,9 @@ namespace PhEngine.ThaiTextCare.Editor
                     EditorGUILayout.EndHorizontal();
                 }
             }
+            
+            PropertyField("isForceFullLineHeight");
+            
             EditorGUILayout.BeginHorizontal();
             PropertyField("isTokenize");
             if (serializedObject.FindProperty("isTokenize").boolValue)
