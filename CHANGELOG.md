@@ -1,3 +1,7 @@
+# 0.2.2 (07-08-2025)
+- Fixed Line spacing issue from modified glyph offset Y value by enforcing line-height=100% tag into the output string.
+- Add 'Refresh' button when dictionary is not found.
+
 # 0.2.1 (04-08-2025)
 - Fixed bug where backslash ( \ ) is tokenized, so \n is not recognized as a newline character.
 
